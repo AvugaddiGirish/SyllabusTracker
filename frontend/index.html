@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Syllabus Tracker</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Syllabus Tracker</h1>
+            <p>Master your topics, one step at a time.</p>
+        </header>
+
+        <main>
+            <section class="add-topic-section">
+                <form id="add-topic-form">
+                    <input type="text" id="topic-title" placeholder="What do you want to learn next?" required autocomplete="off">
+                    <button type="submit" class="primary-btn">
+                        <span>Add Topic</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </form>
+            </section>
+
+            <section class="topics-board">
+                <div class="topics-header">
+                    <h2>Your Syllabus</h2>
+                    <div class="stats" id="stats-counter">0 Topics</div>
+                </div>
+                <div class="topics-grid" id="topics-grid">
+                    <!-- Topics will be dynamically populated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Template for a single topic card (cloned via JS) -->
+    <template id="topic-card-template">
+        <div class="topic-card fade-in" data-id="">
+            <div class="topic-content">
+                <h3 class="topic-title"></h3>
+            </div>
+            <div class="topic-actions">
+                <div class="status-wrapper">
+                    <select class="status-select">
+                        <option value="Not Started">Not Started</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Mastered">Mastered</option>
+                    </select>
+                </div>
+                <button class="delete-btn" aria-label="Delete Topic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

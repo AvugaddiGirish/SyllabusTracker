@@ -1,9 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from database import get_db_connection
 
 app = Flask(__name__)
 CORS(app)  # Allow all domains for local development
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/api/topics', methods=['GET'])
 def get_topics():
